@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'BooksController@index']);
+Route::get('/', function () {
+    return Redirect::to('/books');
+});
+
+
+Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
