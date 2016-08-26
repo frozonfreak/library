@@ -19,9 +19,9 @@ class BooksController extends Controller
     public function index()
     {
         //
-        $books = Book::all();
+        $books = Book::paginate(15);
         //dd($books);
-        return view('layouts.master');
+        return view('books.index', compact('books'));
     }
 
     /**

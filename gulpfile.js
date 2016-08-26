@@ -15,7 +15,8 @@ elixir(function(mix) {
     mix.styles([
             'material.min.css',
             'main.css',
-            'login.css'
+            'login.css',
+            'style.css'
         ], 'public/assets/css/master.css');
 
     mix.version(['assets/css/master.css']);
