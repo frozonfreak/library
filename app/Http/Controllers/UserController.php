@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Hash;
+use App\User;
+use App\Role;
+
 class UserController extends Controller
 {   
 
@@ -65,6 +69,34 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->only('first_name', 'last_name', 'age', 'email', 'password');
+        
+        $user = new User();
+        
+        $validator = $user->validate($data);
+
+        if ($validator->fails()) {
+            return back()->with('danger', $validator->errors());
+        }
+
+        $user = User::Create(array(
+                        'first_name' => $data['first_name'],
+                        'last_name' => $data['last_name'],
+                        'age' => $data['age'],
+                        'email' => $data['email'],
+                        'password' => Hash::make($data['password'])
+                    ));
+
+        $role_user = 'student';
+        if($data['age'] < 17)
+            $role_user = 'junior_student';
+        //Get role name
+        $role = Role::where('name', $role_user)->first();
+        //If exists attach role to user
+        if(@$role)
+            $user->roles()->attach($role->id);
+
+        return redirect()->route('books')->with('success', 'Registered');
     }
 
     /**

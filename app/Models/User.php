@@ -2,13 +2,13 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Validator;
 use Hash;
 
-class User extends Authenticatable
+class User extends Model
 {   
     use SoftDeletes;
     private $rules = [
@@ -16,7 +16,7 @@ class User extends Authenticatable
                         'last_name' => 'required|max:255',
                         'email' => 'required|unique:users,email|max:255',
                         'password' => 'required|min:8|max:255',
-                        'age'=>'required',
+                        'age'=>'required|numeric|min:15',
                     ];
     /**
      * The attributes that are mass assignable.
