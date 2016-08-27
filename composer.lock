@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97258a0d67de8214f584adf660b1fcf9",
-    "content-hash": "d0fd51636d82e5441fa07ed2bc817a36",
+    "hash": "6ef1c160394d6161d1e1b9087f04f24e",
+    "content-hash": "52c8348f04c523a44dafa57c61bec448",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -218,120 +218,48 @@
             "time": "2015-11-06 14:35:42"
         },
         {
-            "name": "graham-campbell/manager",
-            "version": "v2.4.0",
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
-                "reference": "fd9052082e2c69c9a67d3e8d7dfa94cb33f8ab0b"
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/fd9052082e2c69c9a67d3e8d7dfa94cb33f8ab0b",
-                "reference": "fd9052082e2c69c9a67d3e8d7dfa94cb33f8ab0b",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
-                "illuminate/support": "5.1.*|5.2.*|5.3.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench-core": "^1.1",
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8|^5.0"
+                "php": ">=5.2"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Manager\\": "src/"
-                }
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "LGPL"
             ],
             "authors": [
                 {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com"
                 }
             ],
-            "description": "Manager Provides Some Manager Functionality For Laravel 5",
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
             "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Manager",
-                "Laravel-Manager",
-                "connector",
-                "framework",
-                "interface",
-                "laravel",
-                "manager"
+                "html"
             ],
-            "time": "2016-04-26 14:27:59"
-        },
-        {
-            "name": "hashids/hashids",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
-                "reference": "6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Hashids\\": "lib/Hashids/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Akimov",
-                    "email": "ivan@barreleye.com",
-                    "homepage": "https://twitter.com/IvanAkimov"
-                }
-            ],
-            "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers.",
-            "homepage": "http://hashids.org/php",
-            "keywords": [
-                "bitly",
-                "decode",
-                "encode",
-                "hash",
-                "hashid",
-                "hashids",
-                "ids",
-                "obfuscate",
-                "youtube"
-            ],
-            "time": "2016-01-21 04:26:38"
+            "time": "2016-07-16 12:58:58"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -739,6 +667,71 @@
                 "storage"
             ],
             "time": "2016-08-10 08:55:11"
+        },
+        {
+            "name": "mews/purifier",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mewebstudio/Purifier.git",
+                "reference": "e3f8b41dafa21994b9a8349f316d8e967559ee5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mewebstudio/Purifier/zipball/e3f8b41dafa21994b9a8349f316d8e967559ee5a",
+                "reference": "e3f8b41dafa21994b9a8349f316d8e967559ee5a",
+                "shasum": ""
+            },
+            "require": {
+                "ezyang/htmlpurifier": "4.8.*",
+                "illuminate/config": "5.1.*|5.2.*|5.3.*",
+                "illuminate/filesystem": "5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.2",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "scrutinizer/ocular": "^1.3"
+            },
+            "suggest": {
+                "laravel/framework": "To test the Laravel bindings",
+                "laravel/lumen-framework": "To test the Lumen bindings"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Mews\\Purifier\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muharrem ERİN",
+                    "email": "me@mewebstudio.com",
+                    "homepage": "https://github.com/mewebstudio",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 HtmlPurifier Package",
+            "homepage": "https://github.com/mewebstudio/purifier",
+            "keywords": [
+                "Purifier",
+                "htmlpurifier",
+                "laravel5 HtmlPurifier",
+                "laravel5 Purifier",
+                "laravel5 Security",
+                "security",
+                "xss"
+            ],
+            "time": "2016-07-27 10:02:13"
         },
         {
             "name": "monolog/monolog",
@@ -2053,68 +2046,6 @@
                 "dump"
             ],
             "time": "2016-07-26 04:40:54"
-        },
-        {
-            "name": "vinkla/hashids",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vinkla/laravel-hashids.git",
-                "reference": "77238d50efa2473cdf627d2e0b6a1834037c5b66"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vinkla/laravel-hashids/zipball/77238d50efa2473cdf627d2e0b6a1834037c5b66",
-                "reference": "77238d50efa2473cdf627d2e0b6a1834037c5b66",
-                "shasum": ""
-            },
-            "require": {
-                "graham-campbell/manager": "^2.4",
-                "hashids/hashids": "^1.0",
-                "illuminate/contracts": "5.1.* || 5.2.* || 5.3.*",
-                "illuminate/support": "5.1.* || 5.2.* || 5.3.*",
-                "php": "^5.6.4 || ^7.0"
-            },
-            "require-dev": {
-                "graham-campbell/testbench": "^3.2",
-                "mockery/mockery": "^0.9.5",
-                "phpunit/phpunit": "^5.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Vinkla\\Hashids\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vincent Klaiber",
-                    "email": "hello@vinkla.com"
-                }
-            ],
-            "description": "A Hashids bridge for Laravel",
-            "keywords": [
-                "bitly",
-                "decrypt",
-                "encrypt",
-                "hash",
-                "hashid",
-                "hashids",
-                "ids",
-                "laravel",
-                "obfuscate",
-                "youtube"
-            ],
-            "time": "2016-07-11 19:13:05"
         },
         {
             "name": "vlucas/phpdotenv",
