@@ -4,13 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 use Validator;
 use Hash;
 
-class User extends Model
+class User extends \Eloquent implements Authenticatable
 {   
     use SoftDeletes;
+    use AuthenticableTrait;
+    
     private $rules = [
                         'first_name' => 'required|max:255',
                         'last_name' => 'required|max:255',

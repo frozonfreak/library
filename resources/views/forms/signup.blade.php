@@ -3,7 +3,7 @@
 @section('title', 'Signup')
 
 @section('content')
-  {!! Form::open(['url' => 'signup']) !!}
+  {!! Form::open(['url' => 'auth/signup']) !!}
     <div class="group">
       <input type="text" name="first_name" required><span class="highlight"></span><span class="bar"></span>
       <label>First Name</label>

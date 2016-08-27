@@ -18,11 +18,11 @@ Route::get('/', function () {
 //AUTH
 //
 
-Route::get('login', ['as' => 'login', 'uses' => 'UserController@login']);
-Route::post('login', ['as' => 'login.auth', 'uses' => 'UserController@auth']);
+Route::get('auth/login', ['as' => 'auth.login', 'uses' => 'UserController@login']);
+Route::post('auth/login','UserController@auth');
 
-Route::get('signup', ['as' => 'signup', 'uses' => 'UserController@signup']);
-Route::post('signup', ['as' => 'signup.store', 'uses' => 'UserController@store']);
+Route::get('auth/signup', ['as' => 'auth.signup', 'uses' => 'UserController@signup']);
+Route::post('auth/signup', ['as' => 'auth.signup.store', 'uses' => 'UserController@store']);
 
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);

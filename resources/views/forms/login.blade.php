@@ -3,7 +3,7 @@
 @section('title', 'Login')
 
 @section('content')
-  {!! Form::open(['url' => 'login']) !!}
+  {!! Form::open(['url' => 'auth/login']) !!}
     <div class="group">
       <input type="email" name="email" required><span class="highlight"></span><span class="bar"></span>
       <label>Email</label>

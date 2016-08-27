@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Hash;
 use App\User;
 use App\Role;
+use Purifier;
+use Auth;
 
 class UserController extends Controller
 {   
@@ -19,7 +21,7 @@ class UserController extends Controller
         return view('forms.login');
     }
 
-    public function auth()
+    public function auth(Request $request)
     {
         $data = $request->all();
 
@@ -29,10 +31,10 @@ class UserController extends Controller
 
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
             // Authentication passed...
-            return redirect()->intended('superadmin/dashboard');
+            return redirect()->intended('/');
         }
         else
-            return redirect('/login')->with('danger', 'Invalid User');
+            return redirect()->route('auth.login')->with('danger', 'Invalid User');
     }
 
     public function signup(Request $request)
