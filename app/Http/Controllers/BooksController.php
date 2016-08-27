@@ -20,7 +20,7 @@ class BooksController extends Controller
     {
         //
         $books = Book::paginate(15);
-        //dd($books);
+        
         return view('books.index', compact('books'));
     }
 
