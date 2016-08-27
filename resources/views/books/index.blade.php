@@ -18,9 +18,14 @@
               {{$book->description}}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              <p class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 Available - {{$book->quantities}}
-              </a>
+              </p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <p class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                location - {{$book->location}}
+              </p>
             </div>
             <div class="mdl-card__menu">
               <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">

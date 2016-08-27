@@ -17,7 +17,14 @@
           {{$book->description}}
         </div>
         <div class="mdl-card__actions">
-          <a href="#" class="mdl-button">Read our features</a>
+          <p class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Available - {{$book->quantities}}
+          </p>
+        </div>
+        <div class="mdl-card__actions">
+          <p class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            location - {{$book->location}}
+          </p>
         </div>
       </div>
     </section>
