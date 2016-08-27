@@ -9,10 +9,13 @@
         <div class="mdl-cell mdl-cell--4-col">
           <div class="demo-card-wide mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title" style="background:url({{$book->image_url}}) center / cover;">
-              <h2 class="mdl-card__title-text">{{$book->title}}</h2>
+              <a href="{{URL::route('books.show',[$book->id])}}">
+                <h2 class="mdl-card__title-text">{{$book->title}}</h2>
+                <p> by {{$book->author}} </p>
+              </a>
             </div>
             <div class="mdl-card__supporting-text">
-              {{$book->author}}
+              {{$book->description}}
             </div>
             <div class="mdl-card__actions mdl-card--border">
               <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
