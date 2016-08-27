@@ -9,6 +9,7 @@ class Book extends Model
 	protected $fillable = [
         'title', 
         'author',
+        'description',
         'isbn',
         'quantities',
         'location',
@@ -18,6 +19,7 @@ class Book extends Model
     protected $visible = array(
         'title', 
         'author',
+        'description',
         'isbn',
         'quantities',
         'location',
