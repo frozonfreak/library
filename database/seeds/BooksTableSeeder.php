@@ -22,6 +22,7 @@ class BooksTableSeeder extends Seeder
             DB::table('books')->insert([
                 'title' => $faker->name,
                 'author' => $faker->name($gender = null|'male'|'female') ,
+                'description' => $faker->text($maxNbChars = 200) ,
                 'isbn' => $faker->isbn13,
                 'quantities' => $faker->numberBetween($min = 1, $max = 20),
                 'location' => $faker->swiftBicNumber,
