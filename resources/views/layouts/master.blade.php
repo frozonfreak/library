@@ -60,7 +60,7 @@
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="{{URL::route('books')}}" class="mdl-layout__tab is-active">Home</a>
-          <a href="#features" class="mdl-layout__tab">Login</a>
+          <a href="{{URL::route('login')}}" class="mdl-layout__tab">Login</a>
           <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
             <i class="material-icons" role="presentation">search</i>
             <span class="visuallyhidden">Search</span>

@@ -15,6 +15,14 @@ Route::get('/', function () {
     return Redirect::to('/books');
 });
 
+//AUTH
+//
+
+Route::get('login', ['as' => 'login', 'uses' => 'UserController@login']);
+Route::post('login', ['as' => 'login.auth', 'uses' => 'UserController@auth']);
+
+Route::get('signup', ['as' => 'signup', 'uses' => 'UserController@signup']);
+Route::post('signup', ['as' => 'signup.store', 'uses' => 'UserController@store']);
 
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
