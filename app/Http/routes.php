@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
+Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);

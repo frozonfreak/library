@@ -54,6 +54,12 @@ class BooksController extends Controller
     public function show($id)
     {
         //
+        $book = Book::find($id);
+
+        if(!$book)
+            return abort(404);
+
+        return view('books.show', compact('book'));
     }
 
     /**
