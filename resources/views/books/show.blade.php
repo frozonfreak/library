@@ -18,7 +18,7 @@
         </div>
         <div class="mdl-card__actions">
           <p class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Available - {{$book->quantities}}
+            Available - {{$book->quantities - $book->users()->count()}}  / {{$book->quantities}}
           </p>
         </div>
         <div class="mdl-card__actions">
