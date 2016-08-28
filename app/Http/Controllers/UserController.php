@@ -16,32 +16,6 @@ use Auth;
 class UserController extends Controller
 {   
 
-    public function login(Request $request)
-    {   
-        return view('forms.login');
-    }
-
-    public function auth(Request $request)
-    {
-        $data = $request->all();
-
-        $data = array_map(function($input){
-              return Purifier::clean($input);
-            },$data);
-
-        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
-            // Authentication passed...
-            return redirect()->intended('/');
-        }
-        else
-            return redirect()->route('auth.login')->with('danger', 'Invalid User');
-    }
-
-    public function signup(Request $request)
-    {
-        return view('forms.signup');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -60,6 +34,32 @@ class UserController extends Controller
     public function create()
     {
         //
+    }
+
+    public function login(Request $request)
+    {   
+        return view('forms.login');
+    }
+
+    public function auth(Request $request)
+    {
+        $data = $request->all();
+
+        $data = array_map(function($input){
+              return Purifier::clean($input);
+            },$data);
+
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+            // Authentication passed...
+            return redirect()->intended('/user/dashboard');
+        }
+        else
+            return redirect()->route('auth.login')->with('danger', 'Invalid User');
+    }
+
+    public function signup(Request $request)
+    {
+        return view('forms.signup');
     }
 
     /**
@@ -99,6 +99,12 @@ class UserController extends Controller
             $user->roles()->attach($role->id);
 
         return redirect()->route('books')->with('success', 'Registered');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect()->to('/books');
     }
 
     /**

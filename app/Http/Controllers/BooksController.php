@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 
 use App\Book;
 
+use Auth;
+
 class BooksController extends Controller
 {
     /**
