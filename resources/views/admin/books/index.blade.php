@@ -26,6 +26,9 @@
               <i class="material-icons">delete</i>
             </button>
           {!! Form::close() !!}
+          <a href="{{URL::route('admin.books.edit', array($book->id))}}" type="submit" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">mode_edit</i>
+          </a>
         </td>      
       </tr>
       @endforeach

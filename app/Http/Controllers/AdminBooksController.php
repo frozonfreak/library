@@ -88,6 +88,17 @@ class AdminBooksController extends Controller
 
         $book = Book::find($id);
 
+        return view('admin.books.show', compact('user', 'book'));
+    }
+
+
+    public function edit($id)
+    {
+        //
+        $user = Auth::user();
+
+        $book = Book::find($id);
+
         return view('admin.books.create', compact('user', 'book'));
     }
 
@@ -97,7 +108,7 @@ class AdminBooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function postEdit($id)
     {
         //
         $user = Auth::user();
