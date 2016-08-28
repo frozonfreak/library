@@ -24,5 +24,11 @@ Route::post('auth/login','UserController@auth');
 Route::get('auth/signup', ['as' => 'auth.signup', 'uses' => 'UserController@signup']);
 Route::post('auth/signup', ['as' => 'auth.signup.store', 'uses' => 'UserController@store']);
 
+Route::get('logout', ['as' => 'logout', 'uses' => 'UserController@logout']);
+
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
+
+
+Route::get('/user/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
+

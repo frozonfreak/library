@@ -19,5 +19,10 @@ elixir(function(mix) {
             'style.css'
         ], 'public/assets/css/master.css');
 
-    mix.version(['assets/css/master.css']);
+    mix.styles([
+            'material.min.css',
+            'dashboard.css'
+        ], 'public/assets/css/dashboard.css');
+
+    mix.version(['assets/css/master.css','assets/css/dashboard.css']);
 });
