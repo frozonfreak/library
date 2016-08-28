@@ -21,7 +21,7 @@
         <td>{{$book->title}}</td>
         <td>{{$book->author}}</td>
         <td>{{$book->pivot->created_at}}</td>
-        <td>{{$user->borrowed_time_in_days($book->id)}}</td>
+        <td>{{$user->borrowed_time_in_days($book->id)}} / 14</td>
         <td>
           {!! Form::open(['route' => ['users.books.submit', $book->id], 'method' => 'put']) !!}
             <button type="submit" class="mdl-button mdl-js-button mdl-button--icon">
