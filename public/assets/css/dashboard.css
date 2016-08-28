@@ -231,4 +231,8 @@ _:-ms-input-placeholder, :root .demo-graph {
           align-items: center;
 }
 
+.avatar{
+	max-height:150px;
+	max-width:150px;
+}
 /*# sourceMappingURL=dashboard.css.map */
