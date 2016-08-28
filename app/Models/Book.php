@@ -25,4 +25,9 @@ class Book extends Model
         'location',
         'image_url',
     );
+
+    public function users()
+    {
+      return $this->belongsToMany('App\User', 'user_books')->withTimestamps();
+    }
 }

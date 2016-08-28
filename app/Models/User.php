@@ -60,6 +60,11 @@ class User extends \Eloquent implements Authenticatable
       return $this->belongsToMany('App\Role', 'user_roles')->withTimestamps();
     }
     
+    public function books()
+    {
+      return $this->belongsToMany('App\Book', 'user_books')->withTimestamps();
+    }
+
     public function isPasswordValid($password)
     {
         if (Hash::check($password, $this->password)) {
