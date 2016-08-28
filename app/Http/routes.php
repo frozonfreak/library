@@ -30,5 +30,10 @@ Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
 
 
-Route::get('/user/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+    Route::get('/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
+});
 
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
+});

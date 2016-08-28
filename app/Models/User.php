@@ -54,12 +54,12 @@ class User extends \Eloquent implements Authenticatable
         return Validator::make($data, $this->rules);
 
     }
-
+    
     public function roles()
     {
       return $this->belongsToMany('App\Role', 'user_roles')->withTimestamps();
     }
-
+    
     public function isPasswordValid($password)
     {
         if (Hash::check($password, $this->password)) {
