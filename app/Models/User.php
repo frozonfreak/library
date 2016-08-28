@@ -9,6 +9,7 @@ use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 use Validator;
 use Hash;
+use Carbon\Carbon;
 
 class User extends \Eloquent implements Authenticatable
 {   
@@ -63,6 +64,14 @@ class User extends \Eloquent implements Authenticatable
     public function books()
     {
       return $this->belongsToMany('App\Book', 'user_books')->withTimestamps();
+    }
+
+    public function borrowed_time_in_days($book_id)
+    {
+        $book = $this->books()->where('book_id', $book_id)->first();
+        $created_at = $book->pivot->created_at;
+        
+        return $created_at->diffInDays(Carbon::now());
     }
 
     public function isPasswordValid($password)
