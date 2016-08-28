@@ -69,9 +69,7 @@
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
+            <li class="mdl-menu__item"><a href="{{URL::route('logout')}}">Logout</a></li>
           </ul>
         </div>
       </header>
@@ -87,7 +85,7 @@
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
               <li class="mdl-menu__item">{{$user->email}}</li>
-              <li class="mdl-menu__item"><a hred="{{URL::route('logout')}}">Logout</a></li>
+              <li class="mdl-menu__item"><a href="{{URL::route('logout')}}">Logout</a></li>
             </ul>
           </div>
         </header>
