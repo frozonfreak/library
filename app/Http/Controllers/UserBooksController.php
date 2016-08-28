@@ -107,11 +107,31 @@ class UserBooksController extends Controller
         //
         $user = Auth::user();
 
+        $book = Book::find($id);
+
+        if(!$book){
+            return Redirect::route('books')->with('danger', 'Not Found');
+        }
+
+        if($book->users()->count() >= $book->quantities)
+        {
+            return Redirect::back()->with('danger', 'No books available for borrowing');
+        }
+        
         $borrowed_books = $user->books()->lists('books.id')->toArray();
         
         //Display error if already borrowed
         if($borrowed_books && in_array($id, $borrowed_books)){
             return Redirect::back()->with('danger', 'Already borrowed');
+        }
+
+
+        if($user->hasRole('student') && $user->books()->count() > 5){
+            return Redirect::back()->with('danger', 'Max limit of 6 book alreadt borrowed.');
+        }
+
+        if($user->hasRole('junior_student') && $user->books()->count() > 2){
+            return Redirect::back()->with('danger', 'Max limit of 3 book alreadt borrowed.');
         }
 
         $user->books()->attach($id);
