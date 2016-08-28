@@ -95,7 +95,7 @@
             <a class="mdl-navigation__link" href="{{URL::route('admin.books')}}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Books</a>
             <a class="mdl-navigation__link" href="{{URL::route('admin.users')}}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Members</a>
           @endif
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link" href="{{URL::route('users.books')}}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Borrowed</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
           
         </nav>

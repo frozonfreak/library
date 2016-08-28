@@ -28,9 +28,9 @@
               </p>
             </div>
             <div class="mdl-card__menu">
-              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                <i class="material-icons">add</i>
-              </button>
+              <a href="{{URL::route('users.books.update', [$book->id])}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="borrow">
+                <i class="material-icons">visibility</i>
+              </a>
             </div>
           </div>
         </div>
