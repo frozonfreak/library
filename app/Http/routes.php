@@ -49,5 +49,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
     	Route::delete('/{id}', ['as' => 'admin.books.delete', 'uses' => 'AdminBooksController@destroy']);
     });
     
-    Route::get('/members', ['as' => 'admin.members', 'uses' => 'AdminMembersController@index']);
+    Route::group(['prefix' => 'members'], function () {
+        Route::get('/', ['as' => 'admin.users', 'uses' => 'AdminMembersController@index']);
+        Route::get('/create', ['as' => 'admin.users.create', 'uses' => 'AdminMembersController@create']);
+
+        Route::get('/{id}', ['as' => 'admin.users.show', 'uses' => 'AdminMembersController@show']);
+        
+        Route::post('/edit/{id}', ['as' => 'admin.users.update', 'uses' => 'AdminMembersController@edit']);
+        Route::post('/store', ['as' => 'admin.users.store', 'uses' => 'AdminMembersController@store']);
+        
+        Route::delete('/{id}', ['as' => 'admin.users.delete', 'uses' => 'AdminMembersController@destroy']);
+    });
+
 });
