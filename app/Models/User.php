@@ -20,7 +20,7 @@ class User extends \Eloquent implements Authenticatable
                         'last_name' => 'required|max:255',
                         'email' => 'required|unique:users,email|max:255',
                         'password' => 'required|min:8|max:255',
-                        'age'=>'required|numeric|min:15',
+                        'age'=>'required|numeric|min:10',
                     ];
     /**
      * The attributes that are mass assignable.
