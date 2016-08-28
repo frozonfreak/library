@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AuthenticateAdmin
 {
@@ -13,11 +14,11 @@ class AuthenticateAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {   
-        if($this->auth->guest() && $this->auth->user()->hasRole('admin')){
+        if(auth()->user()->hasRole('admin')){
             return $next($request);    
         }
-        return response('Unauthorized.', 401);
+        return redirect()->guest('auth/login');
     }
 }
