@@ -21,7 +21,8 @@ elixir(function(mix) {
 
     mix.styles([
             'material.min.css',
-            'dashboard.css'
+            'dashboard.css',
+            'books.css'
         ], 'public/assets/css/dashboard.css');
 
     mix.version(['assets/css/master.css','assets/css/dashboard.css']);
