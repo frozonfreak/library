@@ -32,11 +32,20 @@ Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
+
+    Route::get('/books', ['as' => 'users.books', 'uses' => 'UserBooksController@index']);
+    Route::get('/books/{id}', ['as' => 'users.books.show', 'uses' => 'UserBooksController@show']);
+
+    Route::put('/books/{id}', ['as' => 'users.books.submit', 'uses' => 'UserBooksController@submit']);
+    Route::post('/books/{id}', ['as' => 'users.books.update', 'uses' => 'UserBooksController@update']);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
+    
+    //DASHBOARD
     Route::get('/dashboard', ['as' => 'admin.dashboard', 'uses' => 'AdminDashboardController@index']);
 
+    //BOOKS
     Route::group(['prefix' => 'books'], function () {
     	Route::get('/', ['as' => 'admin.books', 'uses' => 'AdminBooksController@index']);
     	Route::get('/create', ['as' => 'admin.books.create', 'uses' => 'AdminBooksController@create']);
@@ -49,6 +58,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
     	Route::delete('/{id}', ['as' => 'admin.books.delete', 'uses' => 'AdminBooksController@destroy']);
     });
     
+    //USERS
     Route::group(['prefix' => 'members'], function () {
         Route::get('/', ['as' => 'admin.users', 'uses' => 'AdminMembersController@index']);
         Route::get('/create', ['as' => 'admin.users.create', 'uses' => 'AdminMembersController@create']);
@@ -60,5 +70,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
         
         Route::delete('/{id}', ['as' => 'admin.users.delete', 'uses' => 'AdminMembersController@destroy']);
     });
-
 });
