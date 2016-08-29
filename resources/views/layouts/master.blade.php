@@ -55,6 +55,7 @@
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
           <h3>Library</h3>
+
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
@@ -64,10 +65,7 @@
           @if(Auth::user())
             <a href="{{URL::route('user.dashboard')}}" class="mdl-layout__tab">Dashboard</a>
           @endif
-          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
-            <i class="material-icons" role="presentation">search</i>
-            <span class="visuallyhidden">Search</span>
-          </button>
+          <input type="text" placeholder="Search" class="home-search">
         </div>
       </header>
 
@@ -132,7 +130,7 @@
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+    <script src="https://code.getmdl.io/1.2.0/material.min.js"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
