@@ -52,3 +52,7 @@
     </button>
   {!! Form::close() !!}
 @endsection
+@section('sidebar')
+  <a href="{{URL::route('admin.books.create')}}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Create new book
+    </a>
+@endsection

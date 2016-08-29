@@ -42,3 +42,9 @@
     </button>
   {!! Form::close() !!}
 @endsection
+
+
+@section('sidebar')
+  <a href="{{URL::route('admin.users.create')}}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Create new user
+    </a>
+@endsection
