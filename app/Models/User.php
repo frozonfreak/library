@@ -7,15 +7,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
+use Laravel\Cashier\Billable;
+use Laravel\Cashier\Contracts\Billable as BillableContract;
+
 use Validator;
 use Hash;
 use Carbon\Carbon;
 
-class User extends \Eloquent implements Authenticatable
+class User extends Model implements Authenticatable, BillableContract
 {   
     use SoftDeletes;
     use AuthenticableTrait;
-    
+    use Billable;
+
     private $rules = [
                         'first_name' => 'required|max:255',
                         'last_name' => 'required|max:255',
@@ -48,6 +52,8 @@ class User extends \Eloquent implements Authenticatable
         'email',
         'age',
     );
+
+    protected $dates = ['trial_ends_at', 'subscription_ends_at'];
 
     public function validate($data)
     {
@@ -90,5 +96,18 @@ class User extends \Eloquent implements Authenticatable
             return true;
         else
             return false;    
+    }
+
+    public function borrowedDays($id)
+    {
+        $book_purchase_date = $this->books()
+                                    ->where('book_id', $id)
+                                    ->first()
+                                    ->pivot
+                                    ->created_at;
+
+        $date_diff = $book_purchase_date->diffInDays(Carbon::now());
+
+        return $date_diff;
     }
 }
