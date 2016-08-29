@@ -78,6 +78,12 @@ class UserBooksController extends Controller
             return Redirect::route('books')->with('danger', 'Not Found');
         }
 
+        if($user->borrowedDays($id) > 14){
+            $amount_due = $user->borrowedDays($id) * 200;
+            //$user->charge($amount_due);
+            return view('forms.payment', compact('user', 'amount_due', 'id'));
+        }
+
         $user->books()->detach($id);
 
         return Redirect::back()->with('success', 'Book returned back');
