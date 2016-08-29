@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "~5.0",
         "nesbot/carbon": "^1.21",
-        "mews/purifier": "^2.0"
+        "mews/purifier": "^2.0",
+        "laravel/cashier": "~5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

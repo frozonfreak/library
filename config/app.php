@@ -146,6 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
     ],
 
     /*
