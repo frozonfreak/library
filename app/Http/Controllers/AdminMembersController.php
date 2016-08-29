@@ -96,6 +96,17 @@ class AdminMembersController extends Controller
 
         $profile = User::find($id);
 
+        return view('admin.users.show', compact('user', 'profile'));
+    }
+
+
+    public function edit($id)
+    {
+        //
+        $user = Auth::user();
+
+        $profile = User::find($id);
+
         return view('admin.users.create', compact('user', 'profile'));
     }
 
@@ -105,7 +116,7 @@ class AdminMembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function postEdit($id)
     {
         $user = Auth::user();
 
