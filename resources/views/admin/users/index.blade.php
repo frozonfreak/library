@@ -26,7 +26,7 @@
               <i class="material-icons">delete</i>
             </button>
           {!! Form::close() !!}
-          <a href="{{URL::route('admin.users.edit', array($user->id))}}" type="submit" class="mdl-button mdl-js-button mdl-button--icon">
+          <a href="{{URL::route('admin.users.edit', array($member->id))}}" type="submit" class="mdl-button mdl-js-button mdl-button--icon">
             <i class="material-icons">mode_edit</i>
           </a>
         </td>      
