@@ -29,6 +29,8 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'UserController@logout']);
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
 
+Route::post('/payment', ['as' => 'payment.post', 'uses' => 'PaymentController@stripePayment']);
+
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
 
