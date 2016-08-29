@@ -24,7 +24,15 @@ class AdminBooksController extends Controller
         //
         $user = Auth::user();
 
-        $books = Book::paginate(15);
+        if(Input::has('q')){
+            $search = Input::get('q');
+            $books = Book::where('title', 'LIKE', '%'.$search.'%')
+                ->orWhere('author', 'LIKE', '%'.$search.'%')
+                ->paginate(15);
+        }
+        else{
+            $books = Book::paginate(15);
+        }
 
         return view('admin.books.index', compact('user', 'books'));
     }

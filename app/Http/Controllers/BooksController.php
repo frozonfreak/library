@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Book;
 
 use Auth;
+use Input;
 
 class BooksController extends Controller
 {
@@ -20,8 +21,15 @@ class BooksController extends Controller
      */
     public function index()
     {
-        //
-        $books = Book::paginate(15);
+        if(Input::has('q')){
+            $search = Input::get('q');
+            $books = Book::where('title', 'LIKE', '%'.$search.'%')
+                ->orWhere('author', 'LIKE', '%'.$search.'%')
+                ->paginate(15);
+        }
+        else{
+            $books = Book::paginate(15);
+        }
         
         return view('books.index', compact('books'));
     }

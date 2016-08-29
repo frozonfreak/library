@@ -27,7 +27,17 @@ class AdminMembersController extends Controller
         //
         $user = Auth::user();
 
-        $members = User::paginate(15);
+
+        if(Input::has('q')){
+            $search = Input::get('q');
+            $members = User::where('first_name', 'LIKE', '%'.$search.'%')
+                ->orWhere('last_name', 'LIKE', '%'.$search.'%')
+                ->orWhere('email', 'LIKE', '%'.$search.'%')
+                ->paginate(15);
+        }
+        else{
+            $members = User::paginate(15);
+        }
 
         return view('admin.users.index', compact('user', 'members'));
     }

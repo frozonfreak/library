@@ -457,5 +457,10 @@ input:focus ~ .highlight {
 }
 .home-search{
 	width:300px;
+	height:63px;
+}
+.search{
+	margin:0;
+	padding: 0;
 }
 /*# sourceMappingURL=master.css.map */

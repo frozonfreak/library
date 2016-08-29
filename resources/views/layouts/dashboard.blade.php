@@ -56,15 +56,10 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
+          <form class="search" action="" method="get">
+            <input type="text" placeholder="Search" name="q" class="home-search">
+            <input type="submit" style="position: absolute; left: -9999px"/>
+          </form>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>

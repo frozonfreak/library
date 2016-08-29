@@ -65,7 +65,10 @@
           @if(Auth::user())
             <a href="{{URL::route('user.dashboard')}}" class="mdl-layout__tab">Dashboard</a>
           @endif
-          <input type="text" placeholder="Search" class="home-search">
+          <form class="search" action="" method="get">
+            <input type="text" placeholder="Search" name="q" class="home-search">
+            <input type="submit" style="position: absolute; left: -9999px"/>
+          </form>
         </div>
       </header>
 
