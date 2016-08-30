@@ -61,9 +61,12 @@
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="{{URL::route('books')}}" class="mdl-layout__tab is-active">Home</a>
-          <a href="{{URL::route('auth.login')}}" class="mdl-layout__tab">Login</a>
           @if(Auth::user())
             <a href="{{URL::route('user.dashboard')}}" class="mdl-layout__tab">Dashboard</a>
+            <a href="{{URL::route('logout')}}" class="mdl-layout__tab">Logout</a>
+          @endif
+          @if(!Auth::user())
+            <a href="{{URL::route('auth.login')}}" class="mdl-layout__tab">Login</a>
           @endif
           <form class="search" action="" method="get">
             <input type="text" placeholder="Search" name="q" class="home-search">
