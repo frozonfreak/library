@@ -46,7 +46,12 @@ attach user roles to sample data
 ```sh
 $ php artisan user:update_role
 ```
+compiled assets
+```sh
+$ gulp
+```
 run 
 ```sh
 $ php artisan serve
 ```
+
