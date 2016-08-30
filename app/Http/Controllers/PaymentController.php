@@ -34,6 +34,6 @@ class PaymentController extends Controller
         
         $user->books()->detach($data['book_id']);
 
-        return Redirect::back()->with('success', 'Book returned back');
+        return Redirect::route('users.books')->with('success', 'Book returned back');
     }
 }
