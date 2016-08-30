@@ -29,6 +29,8 @@
           <tr>
             <th>Title</th>
             <th>ISBN</th>
+            <th>Days to return</th>
+            <th>Borrowed date</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +38,8 @@
           <tr>
             <td>{{$book->title}}</td>
             <td>{{$book->isbn}}</td>
+            <td>{{14 - $book->pivot->created_at->diffInDays(Carbon\Carbon::now())}}</td>
+            <td>{{$book->pivot->created_at}}</td>
           </tr>
           @endforeach
         </tbody>
