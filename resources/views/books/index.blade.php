@@ -9,10 +9,17 @@
         <div class="mdl-cell mdl-cell--4-col">
           <div class="demo-card-wide mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title" style="background:url({{$book->image_url}}) center / cover;">
-              <a href="{{URL::route('books.show',[$book->id])}}">
-                <h2 class="mdl-card__title-text">{{$book->title}}</h2>
-                <p> by {{$book->author}} </p>
-              </a>
+            @if(!@$user)
+                <a href="{{URL::route('books.show',[$book->id])}}">
+                  <h2 class="mdl-card__title-text">{{$book->title}}</h2>
+                  <p> by {{$book->author}} </p>
+                </a>
+            @else
+              <a href="{{URL::route('users.books.update',[$book->id])}}">
+                  <h2 class="mdl-card__title-text">{{$book->title}}</h2>
+                  <p> by {{$book->author}} </p>
+                </a>
+            @endif
             </div>
             <div class="mdl-card__supporting-text">
               {{$book->description}}
@@ -26,11 +33,6 @@
               <p class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                 location - {{$book->location}}
               </p>
-            </div>
-            <div class="mdl-card__menu">
-              <a href="{{URL::route('users.books.update', [$book->id])}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="borrow">
-                <i class="material-icons">visibility</i>
-              </a>
             </div>
           </div>
         </div>

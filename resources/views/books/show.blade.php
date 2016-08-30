@@ -26,6 +26,19 @@
             location - {{$book->location}}
           </p>
         </div>
+        @if(!@Auth::user())
+          <a href="{{URL::route('users.books.update')}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Borrow
+          </a>
+        @else
+          <div class="mdl-card__actions">
+            {!!Form::open(array('route' => array('users.books.update', $book->id)))!!}
+              <button type="submit" class="mdl-button mdl-js-button mdl-button--primary">
+                Borrow
+              </button>
+            {!! Form::close() !!}
+            </div>
+        @endif
       </div>
     </section>
 @endsection
