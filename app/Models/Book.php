@@ -26,6 +26,9 @@ class Book extends Model
         'image_url',
     );
 
+    /*
+    Model Relationships
+     */
     public function users()
     {
       return $this->belongsToMany('App\User', 'user_books')->withTimestamps();

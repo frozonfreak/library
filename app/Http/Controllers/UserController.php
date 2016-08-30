@@ -75,12 +75,14 @@ class UserController extends Controller
         
         $user = new User();
         
+        //validate user data   
         $validator = $user->validate($data);
 
         if ($validator->fails()) {
             return back()->with('danger', $validator->errors());
         }
 
+        //Create user
         $user = User::Create(array(
                         'first_name' => $data['first_name'],
                         'last_name' => $data['last_name'],
@@ -89,7 +91,9 @@ class UserController extends Controller
                         'password' => Hash::make($data['password'])
                     ));
 
+        //Update user role
         $role_user = 'student';
+        //If age less than 17 change role to junior student
         if($data['age'] < 17)
             $role_user = 'junior_student';
         //Get role name

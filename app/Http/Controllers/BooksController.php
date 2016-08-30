@@ -20,7 +20,8 @@ class BooksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        //If search query present 
         if(Input::has('q')){
             $search = Input::get('q');
             $books = Book::where('title', 'LIKE', '%'.$search.'%')

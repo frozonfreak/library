@@ -78,12 +78,14 @@ class UserBooksController extends Controller
             return Redirect::route('books')->with('danger', 'Not Found');
         }
 
+        //If overdue process payment
         if($user->borrowedDays($id) > 14){
             $amount_due = $user->borrowedDays($id) * 200;
             //$user->charge($amount_due);
             return view('forms.payment', compact('user', 'amount_due', 'id'));
         }
 
+        //Detach book and user
         $user->books()->detach($id);
 
         return Redirect::back()->with('success', 'Book returned back');
@@ -130,11 +132,12 @@ class UserBooksController extends Controller
             return Redirect::back()->with('danger', 'Already borrowed');
         }
 
-
+        //If limit reached for student role
         if($user->hasRole('student') && $user->books()->count() > 5){
             return Redirect::back()->with('danger', 'Max limit of 6 book alreadt borrowed.');
         }
 
+        //If limit reached for junior student
         if($user->hasRole('junior_student') && $user->books()->count() > 2){
             return Redirect::back()->with('danger', 'Max limit of 3 book alreadt borrowed.');
         }

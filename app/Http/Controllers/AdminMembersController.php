@@ -27,7 +27,7 @@ class AdminMembersController extends Controller
         //
         $user = Auth::user();
 
-
+        //If search query present
         if(Input::has('q')){
             $search = Input::get('q');
             $members = User::where('first_name', 'LIKE', '%'.$search.'%')

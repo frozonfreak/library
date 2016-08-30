@@ -24,13 +24,19 @@ Route::post('auth/login','UserController@auth');
 Route::get('auth/signup', ['as' => 'auth.signup', 'uses' => 'UserController@signup']);
 Route::post('auth/signup', ['as' => 'auth.signup.store', 'uses' => 'UserController@store']);
 
+//LOGOUT
 Route::get('logout', ['as' => 'logout', 'uses' => 'UserController@logout']);
 
+
+//PUBLIC VIEW BOOKS
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/{id}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
 
+
+//ROUTE TO CAPTURE PAYMENT FROM STRIPE
 Route::post('/payment', ['as' => 'payment.post', 'uses' => 'PaymentController@stripePayment']);
 
+//USER ROUTES
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', ['as' => 'user.dashboard', 'uses' => 'UserDashboardController@index']);
 
@@ -41,6 +47,8 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::post('/books/{id}', ['as' => 'users.books.update', 'uses' => 'UserBooksController@update']);
 });
 
+
+//ADMIN ROUTES
 Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
     
     //DASHBOARD

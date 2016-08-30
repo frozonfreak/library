@@ -62,10 +62,18 @@ class User extends Model implements Authenticatable, BillableContract
 
     }
     
+    /*
+    Model Relationships
+     */
+    
     public function roles()
     {
       return $this->belongsToMany('App\Role', 'user_roles')->withTimestamps();
     }
+    
+    /*
+    Model Relationships
+     */
     
     public function books()
     {
